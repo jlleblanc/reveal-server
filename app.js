@@ -7,7 +7,13 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , nconf = require('nconf');
+
+var config = nconf.argv()
+  .env()
+  .file({ file: 'config.json' });
+
 
 var app = express();
 
