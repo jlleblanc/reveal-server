@@ -2,8 +2,35 @@
 <html>
   <head>
     <title>Login</title>
-  </head>
+    <link rel="stylesheet" type="text/css" href="css/reveal.min.css">
+    <link rel="stylesheet" type="text/css" href="css/theme/default.css" id="theme">
+</head>
   <body>
-  	
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <form action="/login" method="post">
+            <h1>Presenter Login</h1>
+            <input type="password" value="" placeholder="password..." />
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: false,
+        center: true,
+      });
+
+    </script>
+
+
   </body>
 </html>
