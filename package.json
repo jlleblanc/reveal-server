@@ -9,6 +9,8 @@
     "express": "3.0.x",
     "hjs": "*",
     "socket.io": "~0.9.13",
-    "nconf": "~0.6.7"
+    "nconf": "~0.6.7",
+    "passport": "~0.1.15",
+    "passport-local": "~0.1.6"
   }
 }

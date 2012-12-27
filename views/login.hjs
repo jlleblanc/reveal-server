@@ -11,7 +11,8 @@
         <section>
           <form action="/login" method="post">
             <h1>Presenter Login</h1>
-            <input type="password" value="" placeholder="password..." />
+            <input name="username" type="hidden" value="derp" />
+            <input name="password" type="password" value="" placeholder="password..." />
           </form>
         </section>
       </div>
