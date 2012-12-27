@@ -11,6 +11,8 @@
     "socket.io": "~0.9.13",
     "nconf": "~0.6.7",
     "passport": "~0.1.15",
-    "passport-local": "~0.1.6"
+    "passport-local": "~0.1.6",
+    "passport.socketio": "0.0.4",
+    "connect": "~2.7.1"
   }
 }
