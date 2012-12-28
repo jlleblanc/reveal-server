@@ -55,9 +55,17 @@ var io = socketio.listen(server);
 io.set("authorization", passsio.authorize({
   sessionKey: 'connect.sid',
   sessionSecret: config.get('session_secret'),
-  sessionStore: session_store
+  sessionStore: session_store,
+  fail: function  (data, accept) {
+    // allow unauthed users to connect, we just handle them separately.
+    accept(null, true);
+  }
 }));
 
 io.sockets.on("connection", function  (socket) {
-  console.log("user connected: ", socket.handshake.user.role);
+
+  if (socket.handshake.user !== undefined) {
+    console.log("user connected: ", socket.handshake.user.role);
+  };
+
 });
