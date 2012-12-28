@@ -6,7 +6,7 @@ exports.login_page = function(req, res){
 };
 
 exports.login = passport.authenticate('local', {
-  successRedirect: '/logged',
+  successRedirect: '/',
   failureRedirect: '/login',
   falshFailure: true
 });
