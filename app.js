@@ -11,7 +11,9 @@ var express = require('express')
   , auth = require('./auth')
   , socketio = require('socket.io')
   , passsio = require('passport.socketio')
-  , MemoryStore = require('connect/lib/middleware/session/memory');
+  , MemoryStore = require('connect/lib/middleware/session/memory')
+  , viewer = require('./viewer')
+  , presenter = require('./presenter');
 
 var session_store = new MemoryStore();
 
@@ -64,8 +66,10 @@ io.set("authorization", passsio.authorize({
 
 io.sockets.on("connection", function  (socket) {
 
-  if (socket.handshake.user !== undefined) {
-    console.log("user connected: ", socket.handshake.user.role);
-  };
+  if (socket.handshake.user === undefined) {
+    viewer(socket, io.sockets);
+  } else {
+    presenter(socket, io.sockets);
+  }
 
 });
