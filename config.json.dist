@@ -1,3 +1,4 @@
 {
-	"password": "your secret"
+	"password": "your password",
+	"session_secret": "your secret"
 }
