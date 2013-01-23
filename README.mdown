@@ -1,12 +1,12 @@
-= Reveal Server =
+# Reveal Server
 
 This server is designed so you can copy a Reveal.js presentation into the `public` folder, then give that presentation remotely. The `/login` route will allow you to authenticate as the presenter. You'll then be redirected back to the presentation, and all of your slide/fragment changes will be broadcast to anyone visiting the site.
 
-== Prerequisites ==
+## Prerequisites
 
 Node version 0.8.x+
 
-== Installation ==
+## Installation
 
 First, clone this repository. Assuming you cloned into a folder named `reveal-server`, use these commands to complete the installation:
 
@@ -25,17 +25,21 @@ Next, you'll want to set up a password and session secret so that you can log in
 
 Then open `config.json` and edit the values to your liking:
 
+```javascript
 	{
 		"password": "shh, this is your password",
 		"session_secret": "keyboard cat"
 	}
+```
 
 If you're using Reveal Server in a production environment, omit `config.json` and set the environment variables `password` and `session_secret` directly.
 
 Finally, you will need to edit the configuration of your presentation's `index.html` file. Open `reveal-server/public/index.html` and add the following lines in the middle of the `dependencies` array:
 
+```javascript
 	{ src: '/socket.io/socket.io.js'},
 	{ src: 'plugin/slidesync/slidesync.js'},
+```
 
 (Omit the final `,` off the end of `{ src: 'plugin/slidesync/slidesync.js'},` if it is the last dependency.)
 
@@ -45,7 +49,7 @@ Now you are ready to start the server:
 
 The server will then be available at http://localhost:3000.
 
-== Todos ==
+## Todos
 
 * Create an easier way to configure the server for first time use
 * Create a command line tool for creating, starting, stopping, etc...
