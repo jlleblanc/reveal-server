@@ -10,26 +10,32 @@ Node version 0.8.x+
 
 First, clone this repository. Assuming you cloned into a folder named `reveal-server`, use these commands to complete the installation:
 
-	cd reveal-server
-	npm install
+```shell
+$ cd reveal-server
+$ npm install
+```
 
 Next, copy your Reveal.js presentation into the `public` folder. Make sure that the `plugin/slidesync` folder inside of `public` is preserved. If you're on a Mac, this is best done from the command line as Finder will clobber existing folders:
 
-	cp -r /path/to/existing/reveal/presentation/* public
+```shell
+$ cp -r /path/to/existing/reveal/presentation/* public
+```
 
 Otherwise, just make sure that `reveal-server/public/plugin/slidesync` is still in place after you copy.
 
 Next, you'll want to set up a password and session secret so that you can log in as the presenter. If you're trying this out locally, copy `config.json.dist` to `config.json`:
 
-	cp config.json.dist config.json
+```shell
+$ cp config.json.dist config.json
+```
 
 Then open `config.json` and edit the values to your liking:
 
 ```javascript
-	{
-		"password": "shh, this is your password",
-		"session_secret": "keyboard cat"
-	}
+{
+	"password": "shh, this is your password",
+	"session_secret": "keyboard cat"
+}
 ```
 
 If you're using Reveal Server in a production environment, omit `config.json` and set the environment variables `password` and `session_secret` directly.
@@ -37,15 +43,17 @@ If you're using Reveal Server in a production environment, omit `config.json` an
 Finally, you will need to edit the configuration of your presentation's `index.html` file. Open `reveal-server/public/index.html` and add the following lines in the middle of the `dependencies` array:
 
 ```javascript
-	{ src: '/socket.io/socket.io.js'},
-	{ src: 'plugin/slidesync/slidesync.js'},
+{ src: '/socket.io/socket.io.js'},
+{ src: 'plugin/slidesync/slidesync.js'},
 ```
 
 (Omit the final `,` off the end of `{ src: 'plugin/slidesync/slidesync.js'},` if it is the last dependency.)
 
 Now you are ready to start the server:
 
-	node app.js
+```shell
+$ node app.js
+```
 
 The server will then be available at http://localhost:3000.
 
