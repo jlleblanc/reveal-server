@@ -56,3 +56,9 @@ The server will then be available at http://localhost:3000.
 * Authenticate over the websockets, forgoing sessions and Express altogether
 * Keep track of latest slide so that late viewers are automatically taken to the correct place
 * Add option for disabling controls for viewers when the presentation is live
+
+## License
+
+MIT licensed
+
+Copyright (C) 2012-2013 Joseph L. LeBlanc, [http://jlleblanc.com](http://jlleblanc.com)
